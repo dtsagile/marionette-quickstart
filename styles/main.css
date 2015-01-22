@@ -1,0 +1,23 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+/*Helper classes*/
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
