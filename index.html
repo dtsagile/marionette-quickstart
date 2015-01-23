@@ -35,22 +35,34 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#/hello">Show Hello View</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-
-      <div id="main" class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      <div id="main-content" class="starter-template">
       </div>
 
     </div><!-- /.container -->
+
+        <!-- Templates -->
+        <script type="text/template" id="hello-template">
+          <p>Hello, <%= name %>, I was rendered from a template!</p>
+        </script>
+        
+        <script type="text/template" id="main-template">
+          <h1>Bootstrap starter template</h1>
+          <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        </script>
+
+        <script type="text/template" id="about-template">
+          <h2>About</h2>
+        </script>
+    
 
         <!-- libraries -->
         <script src="scripts/vendor/jquery-1.11.2.js"></script>
@@ -61,7 +73,14 @@
         <!-- App -->
         <script src="scripts/app/namespace.js"></script>
         <script src="scripts/app/app.js"></script>
+        <!-- Modules -->
         <script src="scripts/app/modules/MainModule.js"></script>
+        <!-- Views -->
+        <script src="scripts/app/views/MainView.js"></script>
+        <script src="scripts/app/views/HelloView.js"></script>
+        <script src="scripts/app/views/AboutView.js"></script>
+        <!-- Models -->
+        <script src="scripts/app/models/HelloModel.js"></script>
 
         <script>
             $(function () {

@@ -21,6 +21,10 @@
         //they will end up here
         options = options || {};
         console.log('App started!');
+        //application regions
+        dts.App.addRegions({
+          mainRegion: "#main-content"
+        });
         //this starts the MainModule
         //you can pass in options to the module, we will just send them all along
         dts.App.module('Main').start(options);
