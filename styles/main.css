@@ -6,7 +6,7 @@ html {
     margin: 0;
 }
 body {
-    padding-top: 50px;
+    padding-top: 50px;/*offset for nav*/
 }
 
 .starter-template {
