@@ -18,10 +18,8 @@
               console.log('some method called!');
             },
 
-            showMainView: function () {
-              //get posts
-              var data = this.getPosts();
-              //send data to the view
+            showMainView: function (data) {
+              //you could then pass the data to the view to render it to the DOM
               this.region.show(new dts.MainView(data));
               console.log('Main view shown!');
             },
@@ -44,11 +42,29 @@
             },
 
             getPosts: function () {
-              //could do ajax call here
-              alert('get posts!');
-              var data = {};
-              //and return the data
-              return data
+              //make ajax call
+              var rootURL = 'http://ninedesign.com/wordpress/newsappdev/wp-json';
+              $.ajax({
+                type: 'GET',
+                url: rootURL + '/posts?filter[category_name]=parent-category-i',
+                dataType: 'json',
+                success: _.bind(this.getPostsCallback, this),
+                error: this.errorCallback
+              });
+            },
+
+            getPostsCallback: function (response, status) {
+              if (status === 'success') {
+                //do something with the data
+                //call a function to show the view with the new data
+                this.showMainView(response);
+              } else {
+                //do something else
+              }
+            },
+
+            errorCallback: function (response) {
+              console.log(response.message || 'ERROR!')
             }
 
           });
@@ -57,7 +73,7 @@
               // all methods must exist on controller
               //'route/name': 'methodName'
               appRoutes: {
-                '': 'showMainView',
+                '': 'getPosts',
                 'hello/:name': 'showHelloView',
                 'hello': 'showHelloView',
                 'about': 'showAboutView',
