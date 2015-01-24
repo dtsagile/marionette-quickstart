@@ -19,7 +19,10 @@
             },
 
             showMainView: function () {
-              this.region.show(new dts.MainView());
+              //get posts
+              var data = this.getPosts();
+              //send data to the view
+              this.region.show(new dts.MainView(data));
               console.log('Main view shown!');
             },
 
@@ -38,7 +41,16 @@
                   name: name || 'No Name'
                 })
               }));
+            },
+
+            getPosts: function () {
+              //could do ajax call here
+              alert('get posts!');
+              var data = {};
+              //and return the data
+              return data
             }
+
           });
           //define the module's router
           var MainRouter = Marionette.AppRouter.extend({
