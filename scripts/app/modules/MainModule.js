@@ -9,6 +9,7 @@
             //initialize function called automatically when instantiated
             initialize: function (options) {
               //options are passed to the controller here
+              //regions are specified in app.js
               this.region = dts.App.mainRegion;
               console.log('Main controller init!');
             },
@@ -20,7 +21,7 @@
 
             showMainView: function (data) {
               //you could then pass the data to the view to render it to the DOM
-              this.region.show(new dts.MainView(data));
+              this.region.show(new dts.MainView({ data: data }));
               console.log('Main view shown!');
             },
 

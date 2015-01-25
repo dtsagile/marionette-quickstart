@@ -55,8 +55,13 @@
         </script>
         
         <script type="text/template" id="main-template">
-          <h1>Bootstrap starter template</h1>
-          <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+          <% _.each(data, function (item) { %>
+              <div class="list-group-item">
+                <h3><%= item.title %></h3>
+                <a class="view-link" href="#<%= item.ID %>"><img src="<%= item.featured_image.attachment_meta.sizes.thumbnail.url %>" /></a>
+                <%= item.content %>
+              </div>
+          <% }); %>
         </script>
 
         <script type="text/template" id="about-template">
@@ -80,6 +85,7 @@
         <script src="scripts/app/views/HelloView.js"></script>
         <script src="scripts/app/views/AboutView.js"></script>
         <!-- Models -->
+        <script src="scripts/app/models/MainModel.js"></script>
         <script src="scripts/app/models/HelloModel.js"></script>
 
         <script>
