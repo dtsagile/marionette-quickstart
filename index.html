@@ -57,11 +57,15 @@
         <script type="text/template" id="main-template">
           <% _.each(data, function (item) { %>
               <div class="list-group-item">
-                <h3><%= item.title %></h3>
+                <h3><a class="view-link" href="#<%= item.ID %>"><%= item.title %></a></h3>
                 <a class="view-link" href="#<%= item.ID %>"><img src="<%= item.featured_image.attachment_meta.sizes.thumbnail.url %>" /></a>
-                <%= item.content %>
               </div>
           <% }); %>
+        </script>
+        
+        <script type="text/template" id="single-post-template">
+          <h2><%= item.title %></h2>
+		  <%= item.content %>
         </script>
 
         <script type="text/template" id="about-template">
