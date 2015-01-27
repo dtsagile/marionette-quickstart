@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    dts.MainView = Backbone.Marionette.ItemView.extend({
+    dts.PostListView = Backbone.Marionette.ItemView.extend({
         initialize: function (options) {
         	var data = options.data;
         	//create a model

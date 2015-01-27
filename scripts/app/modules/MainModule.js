@@ -19,30 +19,32 @@
               console.log('some method called!');
             },
 
-            showMainView: function (data) {
+            showPostListView: function (data) {
               //you could then pass the data to the view to render it to the DOM
-              this.region.show(new dts.MainView({ data: data }));
-              console.log('Main view shown!');
+              this.region.show(new dts.PostListView({ data: data }));
             },
 
-            showAboutView: function () {
-              this.region.show(new dts.AboutView());
-              console.log('About view shown');
-            },
-
-            showHelloView: function (name) {
-              //name is whatever is after /hello/ in the URL
-              //if none, use No Name
-              //the view's model is responsible for handling the data
-              //in this case, a name attribute is passed the the view's template
-              this.region.show(new dts.HelloView({
-                model: new dts.HelloModel({
-                  name: name || 'No Name'
-                })
-              }));
+            showSinglePostView: function (id) {
+              //if we havent stored the posts
+              //there will not be any data to search
+              if (!this.postListData) {
+                this.getPosts();
+              }
+              var post = _.findWhere(this.postListData, {ID: parseInt(id, 10)});
+              if (!post) {
+                alert('Post ' + id + ' could not be found!');
+                //no post found, send them to the homepage
+                window.location.hash = '';
+              }
+              this.region.show(new dts.SinglePostView({post: post}));
             },
 
             getPosts: function () {
+              //if we have the posts already, just show them
+              if (this.postListData) {
+                this.showPostListView(this.postListData);
+                return;
+              }
               //make ajax call
               var rootURL = 'http://ninedesign.com/wordpress/newsappdev/wp-json';
               $.ajax({
@@ -58,14 +60,16 @@
               if (status === 'success') {
                 //do something with the data
                 //call a function to show the view with the new data
-                this.showMainView(response);
+                this.showPostListView(response);
+                //store the posts for later use
+                this.postListData = response;
               } else {
                 //do something else
               }
             },
 
             errorCallback: function (response) {
-              console.log(response.message || 'ERROR!')
+              console.log(response.message || 'ERROR!');
             }
 
           });
@@ -74,11 +78,9 @@
               // all methods must exist on controller
               //'route/name': 'methodName'
               appRoutes: {
+                //when hitting main page, get all posts
                 '': 'getPosts',
-                'hello/:name': 'showHelloView',
-                'hello': 'showHelloView',
-                'about': 'showAboutView',
-                'some/route': 'someMethod'
+                ':postId': 'showSinglePostView'
               },
 
               // If it exists, AppRouters will call the onRoute method whenever a user navigates within your app. The
