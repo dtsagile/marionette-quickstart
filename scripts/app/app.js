@@ -1,7 +1,6 @@
 (function (Backbone, Marionette) {
     'use strict';
-    //the root application--this is instantiated/started from index.html
-    dts.App = new Backbone.Marionette.Application();
+    dts.App = new Marionette.Application();
 
     //this event is fired before the application starts if
     //any logic needs to happen first
