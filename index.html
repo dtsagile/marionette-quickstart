@@ -21,31 +21,39 @@
 
 <body>
 <div class="navmenu navmenu-default navmenu-fixed-left"> <a class="navmenu-brand" href="#">Categories</a>
-  <ul class="nav navmenu-nav">
-    <li><a href="#">Latest News</a></li>
-    <li><a href="#">Auction Previews</a></li>
-    <li><a href="#">Auction Highlights</a></li>
-    <li><a href="#">Consignments</a></li>
-    <li><a href="#">Conventions</a></li>
-    <li><a href="#">Current Auctions</a></li>
-    <li><a href="#">Ending Today</a></li>
-    <li><a href="#">General News</a></li>
-    <li><a href="#">Profiles</a></li>
-    <li><a href="#">Last Chance to Bid</a></li>
-    <li><a href="#">NSCC Shows</a></li>
-    <li><a href="#">Radio Program</a></li>
-    <li><a href="#">Videos</a></li>
-  </ul>
+    <ul class="nav navmenu-nav">
+        <li><a href="#">Latest News</a></li>
+        <li><a href="#">Auction Previews</a></li>
+        <li><a href="#">Auction Highlights</a></li>
+        <li><a href="#">Consignments</a></li>
+        <li><a href="#">Conventions</a></li>
+        <li><a href="#">Current Auctions</a></li>
+        <li><a href="#">Ending Today</a></li>
+        <li><a href="#">General News</a></li>
+        <li><a href="#">Profiles</a></li>
+        <li><a href="#">Last Chance to Bid</a></li>
+        <li><a href="#">NSCC Shows</a></li>
+        <li><a href="#">Radio Program</a></li>
+        <li><a href="#">Videos</a></li>
+    </ul>
 </div>
+
+<!-- <div class="navmenu navmenu-default navmenu-fixed-right"> <a class="navmenu-brand" href="#">Categories</a>
+<ul class="nav navmenu-nav">
+    <li><a href="#">Latest News</a></li>
+</ul>
+</div> -->
 <div class="canvas">
-  <div class="navbar navbar-default navbar-fixed-top">
-  <div class="nvbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button><a class="navmenu-brand" href="#">Auction REport</a></div>
-  </div>
-  <div class="container">
-    <div id="main-content" class="starter-template"> </div>
-  </div>
-  <!-- /.container --> 
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header row">
+            <div class="col-xs-2 nav-tgl"><button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div>
+            <div class="col-xs-2 back-btn"><button type="button" class="navbar-back" onclick="window.history.back();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button></div>
+            <!-- <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu-fixed-right" data-canvas=".canvas" style="float:right;"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>--><div class="col-xs-6 nav-title"><a class="navmenu-brand" href="#">Auction Report</a></div></div>
+    </div>
+    <div class="container">
+        <div id="main-content" class="starter-template"> </div>
+    </div>
+    <!-- /.container --> 
 </div>
 <!-- .canvas --> 
 
@@ -55,9 +63,12 @@
         </script> 
 <script type="text/template" id="main-template">
           <% _.each(data, function (item) { %>
-              <div class="list-group-item">
-                <h3><a class="view-link" href="#<%= item.ID %>"><%= item.title %></a></h3>
-                <a class="view-link" href="#<%= item.ID %>"><img src="<%= item.featured_image.attachment_meta.sizes.thumbnail.url %>" /></a>
+		  <div class="row list-group-item">
+			  <div class="col-xs-8">
+              <a class="view-link" href="#<%= item.ID %>">
+                <h4><%= item.title %></h4></a></div>
+			 <div class="col-xs-4">
+              <a class="view-link" href="#<%= item.ID %>"><img class="img-responsive" src="<%= item.featured_image.attachment_meta.sizes.thumbnail.url %>" /></a></div>
               </div>
           <% }); %>
         </script> 
