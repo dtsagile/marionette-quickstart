@@ -46,10 +46,10 @@
                 return;
               }
               //make ajax call
-              var rootURL = 'http://ninedesign.com/wordpress/newsappdev/wp-json';
+              var rootURL = 'http://www.auctionreport.com/wp-json';
               $.ajax({
                 type: 'GET',
-                url: rootURL + '/posts?filter[category_name]=parent-category-i',
+                url: rootURL + '/posts',
                 dataType: 'json',
                 success: _.bind(this.getPostsCallback, this),
                 error: this.errorCallback
