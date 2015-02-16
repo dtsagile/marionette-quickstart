@@ -24,6 +24,20 @@
               this.region.show(new dts.PostListView({ data: data }));
             },
 
+            showCategoryView: function (category) {
+              var rootURL = 'http://www.auctionreport.com/wp-json';
+              $.ajax({
+                type: 'GET',
+                url: rootURL + '/posts?filter[category_name]=' + category,
+                dataType: 'json',
+                success: function (res) {
+                  alert('success');
+                  console.log(res);
+                },
+                error: this.errorCallback
+              });
+            },
+
             showSinglePostView: function (id) {
               //if we havent stored the posts
               //there will not be any data to search
@@ -80,7 +94,8 @@
               appRoutes: {
                 //when hitting main page, get all posts
                 '': 'getPosts',
-                ':postId': 'showSinglePostView'
+                ':postId': 'showSinglePostView',
+                'category/:id': 'showCategoryView'
               },
 
               // If it exists, AppRouters will call the onRoute method whenever a user navigates within your app. The
