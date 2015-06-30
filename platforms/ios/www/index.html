@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Auction Report News</title>
+<link rel="stylesheet" href="css/vendor/bootstrap.css">
+<link rel="stylesheet" href="css/vendor/jasny-bootstrap.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<div class="navmenu navmenu-default navmenu-fixed-left"> <span class="navmenu-title">News Categories</span>
+    <ul class="nav navmenu-nav">
+        <li><a href="" class="oc-toggle-left">Latest News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/27" class="oc-toggle">Auction Previews<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/1480" class="oc-toggle-left">Auction Highlights<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/8" class="oc-toggle-left">Consignments<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/32" class="oc-toggle-left">Conventions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/6" class="oc-toggle-left">Current Auctions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/2745" class="oc-toggle-left">Ending Today<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/56" class="oc-toggle-left">General News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/7" class="oc-toggle-left">Profiles<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/1607" class="oc-toggle-left">Last Chance to Bid<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/31" class="oc-toggle-left">NSCC Shows<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="http://www.blogtalkradio.com/auctionreport" class="oc-toggle-left">Radio Program<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+        <li><a href="#/category/202" class="oc-toggle-left">Videos<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+    </ul>
+</div>
+
+<div class="navmenu navmenu-default navmenu-fixed-right"> <a class="navmenu-title" href="#">Connect wit us</a>
+<ul class="nav navmenu-nav">
+    <li><a href="https://twitter.com/auctionreport">Twitter</a></li>
+    <li><a href="https://www.facebook.com/auctionreport">Facebook</a></li>
+    <li><a href="https://plus.google.com/u/0/100662067038124633108/posts">Google+</a></li>
+</ul>
+</div>
+<div class="canvas">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <div class="nav-col toggle-nav">
+                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu-fixed-left" data-canvas=".canvas"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div class="nav-col back-btn">
+                <button type="button" class="navbar-back" onclick="window.history.back();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu-fixed-right" data-canvas=".canvas" style="float:right;"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <div class="nav-col nav-title"><a class="navmenu-brand" href="">Auction Report</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="main-content" class="starter-template"> </div>
+    </div>
+    <!-- /.container --> 
+</div>
+<!-- .canvas --> 
+
+<!-- When in Phonegap folder uncomment this
+<script type="text/javascript" src="phonegap.js"></script>  --> 
+
+<!-- Templates --> 
+<script type="text/template" id="hello-template">
+          <p>Hello, <%= name %>, I was rendered from a template!</p>
+        </script> 
+<script type="text/template" id="main-template">
+          <% _.each(data, function (item) { %>
+		  <div class="row list-group-item">
+			  <div class="col-xs-8">
+              <a class="view-link" href="#<%= item.ID %>">
+                <h4><%= item.title %></h4></a></div>
+			 <div class="col-xs-4">
+              <a class="view-link" href="#<%= item.ID %>"><img class="img-responsive" src="<%= item.featured_image.attachment_meta.sizes.thumbnail.url %>" /></a></div>
+              </div>
+          <% }); %>
+        </script> 
+<script type="text/template" id="single-post-template">
+          <h2><%= post.title %></h2>
+		      <%= post.content %>
+        </script> 
+
+<!-- libraries --> 
+<script src="js/vendor/jquery-1.11.2.js"></script> 
+<script src="js/vendor/fastclick.js"></script> 
+<script src="js/vendor/lodash.js"></script> 
+<script src="js/vendor/backbone.js"></script> 
+<script src="js/vendor/backbone.marionette.js"></script> 
+<script src="js/vendor/bootstrap.js"></script> 
+<script src="js/vendor/jasny-bootstrap.min.js"></script> 
+<!-- App --> 
+<script src="js/app/namespace.js"></script> 
+<script src="js/app/app.js"></script> 
+<!-- Modules --> 
+<script src="js/app/modules/MainModule.js"></script> 
+<!-- Views --> 
+<script src="js/app/views/PostListView.js"></script> 
+<script src="js/app/views/SinglePostView.js"></script> 
+<!-- Models --> 
+<script src="js/app/models/MainModel.js"></script> 
+<script>
+            $(function () {
+              'use strict';
+                var options = {
+                    someOption: 'Foo'
+                };
+                dts.App.start(options);
+            });
+</script>
+</body>
+</html>
