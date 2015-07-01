@@ -14,19 +14,19 @@
     <body>
         <div class="navmenu navmenu-default navmenu-fixed-left"> <span class="navmenu-title">News Categories</span>
             <ul class="nav navmenu-nav">
-                <li><a href="" class="oc-toggle-left">Latest News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/27" class="oc-toggle">Auction Previews<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/1480" class="oc-toggle-left">Auction Highlights<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/8" class="oc-toggle-left">Consignments<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/32" class="oc-toggle-left">Conventions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/6" class="oc-toggle-left">Current Auctions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/2745" class="oc-toggle-left">Ending Today<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/56" class="oc-toggle-left">General News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/7" class="oc-toggle-left">Profiles<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/1607" class="oc-toggle-left">Last Chance to Bid<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/31" class="oc-toggle-left">NSCC Shows<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="" class="cat"><a href="" class="oc-toggle-left">Latest News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="27" class="cat"><a href="#/category/27" class="oc-toggle-left">Auction Previews<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="1480" class="cat"><a href="#/category/1480" class="oc-toggle-left">Auction Highlights<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="8" class="cat"><a href="#/category/8" class="oc-toggle-left">Consignments<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="32" class="cat"><a href="#/category/32" class="oc-toggle-left">Conventions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="6" class="cat"><a href="#/category/6" class="oc-toggle-left">Current Auctions<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="2745" class="cat"><a href="#/category/2745" class="oc-toggle-left">Ending Today<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="56" class="cat"><a href="#/category/56" class="oc-toggle-left">General News<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="7" class="cat"><a href="#/category/7" class="oc-toggle-left">Profiles<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="1607" class="cat"><a href="#/category/1607" class="oc-toggle-left">Last Chance to Bid<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="31" class="cat"><a href="#/category/31" class="oc-toggle-left">NSCC Shows<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
                 <li><a href="http://www.blogtalkradio.com/auctionreport" class="oc-toggle-left">Radio Program<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                <li><a href="#/category/202" class="oc-toggle-left">Videos<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                <li data-category="202" class="cat"><a href="#/category/202" class="oc-toggle-left">Videos<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
             </ul>
         </div>
         
@@ -44,7 +44,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu-fixed-left" data-canvas=".canvas"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                     </div>
                     <div class="nav-col back-btn">
-                        <button type="button" class="navbar-back" onclick="window.history.back();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+                        <button type="button" class="navbar-back invisible" onclick="window.history.back();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu-fixed-right" data-canvas=".canvas" style="float:right;"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                     <div class="nav-col nav-title"><a class="navmenu-brand" href="">Auction Report</a></div>

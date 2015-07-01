@@ -21,10 +21,15 @@
 
             showPostListView: function (data) {
               //you could then pass the data to the view to render it to the DOM
-              this.region.show(new dts.PostListView({ data: data }));
+              this.region.show(new dts.PostListView({ data: data, category: this.category }));
             },
 
             showCategoryView: function (category) {
+              _.each($('.cat'), function (li) {
+                if ($(li).data('category').toString() === category) {
+                  this.category = $(li).find('a').text();
+                }
+              }, this);
               var rootURL = 'http://www.auctionreport.com/wp-json';
               $.ajax({
                 type: 'GET',
