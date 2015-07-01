@@ -18,6 +18,7 @@
         },
 
 		// to open urls included in posts with the device browser not in-app - testing 6-23-2015
+        // see here: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
 		openUrl: function(evt) {
             evt.preventDefault();
             var url = evt.target.href;
