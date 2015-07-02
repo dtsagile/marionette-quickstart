@@ -12,8 +12,6 @@
               //regions are specified in app.js
               this.region = dts.App.mainRegion;
               console.log('Main controller init!');
-              // listen for category refresh
-              dts.App.vent.on('category:refresh', _.bind(this.showCategoryView, this));
             },
 
             someMethod: function () {
@@ -23,20 +21,10 @@
 
             showPostListView: function (data) {
               //you could then pass the data to the view to render it to the DOM
-              this.region.show(new dts.PostListView({ data: data, category: this.category, categoryId: this.categoryId }));
+              this.region.show(new dts.PostListView({ data: data }));
             },
 
             showCategoryView: function (category) {
-              if (!category) {
-                this.getPosts();
-                return;
-              }
-              _.each($('.cat'), function (li) {
-                if ($(li).data('category').toString() === category) {
-                  this.category = $(li).find('a').text();
-                  this.categoryId = category;
-                }
-              }, this);
               var rootURL = 'http://www.auctionreport.com/wp-json';
               $.ajax({
                 type: 'GET',
@@ -51,9 +39,7 @@
               //if we havent stored the posts
               //there will not be any data to search
               if (!this.postListData) {
-                //if no data, re-call this function after getting data with the same ID
-                this.getPosts(_.bind(_.partial(this.showSinglePostView, id), this));
-                return;
+                this.getPosts();
               }
               var post = _.findWhere(this.postListData, {ID: parseInt(id, 10)});
               if (!post) {
@@ -64,7 +50,7 @@
               this.region.show(new dts.SinglePostView({post: post}));
             },
 
-            getPosts: function (cb) {
+            getPosts: function () {
               //if we have the posts already, just show them
               if (this.postListData) {
                 this.showPostListView(this.postListData);
@@ -72,17 +58,13 @@
               }
               //make ajax call
               var rootURL = 'http://www.auctionreport.com/wp-json';
-              var req = $.ajax({
+              $.ajax({
                 type: 'GET',
                 url: rootURL + '/posts',
                 dataType: 'json',
                 success: _.bind(this.getPostsCallback, this),
                 error: this.errorCallback
               });
-              // if callback was passed in, call on ajax complete
-              if (cb) {
-                req.complete(cb);
-              }
             },
 
             getPostsCallback: function (response, status) {
