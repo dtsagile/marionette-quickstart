@@ -28,7 +28,7 @@
             this.initScrollRefresh();
             //uncomment to update title text in header
             //issue with size of title text causing wrap probably needs addressed
-            $('.nav-title a').text(this.model.get('category'));
+            $('.nav-title span').text(this.model.get('category'));
             
             //after view is rendered, hide the back button
             $('.navbar-back').addClass('invisible');
