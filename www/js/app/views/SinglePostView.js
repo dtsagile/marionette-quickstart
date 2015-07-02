@@ -8,7 +8,13 @@
             this.model.set('post', options.post);
         },
 		
-		// to open urls included in posts with the device browser not in-app - testing 6-23-2015
+		
+        onShow: function () {
+            //after view is rendered, show the back button
+            $('.navbar-back').removeClass('invisible');
+
+        },
+
 		openURL: function(url) {
     		if(device.platform === 'Android') {
         		navigator.app.loadUrl(url, {openExternal:true});
